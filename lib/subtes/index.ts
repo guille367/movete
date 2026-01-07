@@ -91,7 +91,7 @@ export async function getStationStatus(line: string, station_name: string): Prom
             if (minutosFaltantes >= 0) {
                 predicciones.push({
                     destino: estacionBuscada.descripcion,
-                    llegada_estimada: new Date(tiempoLlegada * 1000).toLocaleTimeString("es-AR"),
+                    llegada_estimada: new Date(tiempoLlegada * 1000).toLocaleTimeString("es", { timeZone: "America/Argentina/Buenos_Aires" }),
                     minutos: minutosFaltantes,
                     delay: estacion.arrival.delay / 60 + " minutos",
                 });
