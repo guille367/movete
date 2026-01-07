@@ -35,7 +35,6 @@ export async function getSubwayStatus(line: string = "") {
 
 export async function getStations() {
     const url = `/subtes/forecastGTFS`;
-    console.log(`🚀 Getting stations... --> ${JSON.stringify(process.env)} ${SUBTE_CLIENT_SECRET}`);
 
     const { data: datos } = await transportApi.get(url, { params: { client_id: SUBTE_CLIENT_ID, client_secret: SUBTE_CLIENT_SECRET } });
 
@@ -92,7 +91,7 @@ export async function getStationStatus(line: string, station_name: string): Prom
             if (minutosFaltantes >= 0) {
                 predicciones.push({
                     destino: estacionBuscada.descripcion,
-                    llegada_estimada: new Date(tiempoLlegada * 1000).toLocaleTimeString(),
+                    llegada_estimada: new Date(tiempoLlegada * 1000).toLocaleTimeString("es-AR"),
                     minutos: minutosFaltantes,
                     delay: estacion.arrival.delay / 60 + " minutos",
                 });
