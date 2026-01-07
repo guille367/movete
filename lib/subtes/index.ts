@@ -35,7 +35,7 @@ export async function getSubwayStatus(line: string = "") {
 
 export async function getStations() {
     const url = `/subtes/forecastGTFS`;
-    console.log(`🚀 Getting stations... --> ${process.env} ${SUBTE_CLIENT_SECRET}`);
+    console.log(`🚀 Getting stations... --> ${JSON.stringify(process.env)} ${SUBTE_CLIENT_SECRET}`);
 
     const { data: datos } = await transportApi.get(url, { params: { client_id: SUBTE_CLIENT_ID, client_secret: SUBTE_CLIENT_SECRET } });
 
